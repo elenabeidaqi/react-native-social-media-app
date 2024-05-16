@@ -6,7 +6,7 @@ function App(): React.JSX.Element {
   return (
     <SafeAreaView>
       <ScrollView>
-        <View></View>
+        <View>social app</View>
       </ScrollView>
     </SafeAreaView>
   );
