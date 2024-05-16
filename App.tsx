@@ -1,12 +1,12 @@
+
 import React from 'react';
 import {SafeAreaView, ScrollView, Text, View} from 'react-native';
+import Title from './components/Title/Title';
 
 function App(): React.JSX.Element {
   return (
     <SafeAreaView>
-      <ScrollView>
-        <Text>media app</Text>
-      </ScrollView>
+      <Title props={"Let’s Explore"}/>
     </SafeAreaView>
   );
 }
