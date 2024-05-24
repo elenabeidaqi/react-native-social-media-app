@@ -1,24 +1,22 @@
 import React from 'react';
-import {SafeAreaView, ScrollView, View} from 'react-native';
+import {Pressable, SafeAreaView, ScrollView, Text, View} from 'react-native';
 import Title from './components/Title/Title';
 import {Mail} from 'lucide-react-native';
+import {style} from './assets/styles/main';
 
 function App(): React.JSX.Element {
   return (
     <SafeAreaView>
       <ScrollView>
-        <View
-          style={{
-            display: 'flex', 
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            flexDirection: 'row',
-            paddingTop : 30,
-            paddingRight : 17,
-            paddingLeft : 17
-          }}>
+        <View style={style.header}>
           <Title props={'Let’s Explore'} />
-          <Mail color={'#898DAE'} />
+          <Pressable style={style.messageIcon}>
+            <Mail color={'#898DAE'} />
+            <View
+              style={style.badge}>
+              <Text style={style.badgeText}>2</Text> 
+            </View>
+          </Pressable>
         </View>
       </ScrollView>
     </SafeAreaView>
