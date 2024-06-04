@@ -13,7 +13,7 @@ import {style} from './assets/styles/main';
 import UserStory from './components/userStory/UserStory';
 
 function App(): React.JSX.Element {
-  const data = [
+  const data : any = [
     {firstName: 'Joseph', id: 1},
     {firstName: 'Angel', id: 2},
     {firstName: 'White', id: 3},
@@ -24,10 +24,18 @@ function App(): React.JSX.Element {
     {firstName: 'Nick', id: 8},
     {firstName: 'Kevin', id: 9},
   ];
-  const pageSize = 4;
+  const pageSize : number = 4;
   const [pageNumber, setPageNumber] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
-  const [renderedData, setRenderedData] = useState([]);
+  const [renderedData, setRenderedData] = useState<any[]>(data.slice(0 , pageSize));
+  const pagination =(data : [] , pageNumber : number , pageSize : number)=>{
+    const startIndex = (pageNumber -1)*pageSize //  4 , 8
+    if(startIndex > data.length){
+      return []
+    }
+    setPageNumber(pageNumber)
+    return data.slice(startIndex , startIndex+pageSize) //  slice(4 , 8) slice(8 , 12)
+  }
   return (
     <SafeAreaView>
       <ScrollView>
@@ -43,7 +51,16 @@ function App(): React.JSX.Element {
         <View style={style.userStoryContainer}>
           <FlatList
             showsHorizontalScrollIndicator={false}
-            data={data}
+            onEndReachedThreshold={0.5}
+            keyExtractor={(item) => item.id.toString()}
+            onEndReached={() =>{
+              if(!isLoading){
+                setIsLoading(true)
+                setRenderedData(prev =>[...prev , ...pagination(data , pageNumber+1 , pageSize)])
+                setIsLoading(false)
+              }
+            }}
+            data={renderedData}
             horizontal={true}
             renderItem={({item}) => <UserStory firstName={item.firstName} />}
           />
