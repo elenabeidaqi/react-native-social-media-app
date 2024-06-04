@@ -32,4 +32,8 @@ export const style = StyleSheet.create({
     fontSize: 10,
     fontFamily: 'Inter',
   },
+  userStoryContainer: {
+    paddingHorizontal: 28,
+    marginTop : 25
+  },
 });
