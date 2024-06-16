@@ -7,6 +7,7 @@ import {
   Heart,
   MessageCircleMore,
 } from 'lucide-react-native';
+import UserProfileImage from '../userProfileImage/UserProfileImage';
 interface userPostsProps {
   firstName: string;
   lastName: string;
@@ -27,11 +28,7 @@ const UserPost = ({
     <View style={style.postContainer}>
       <View style={style.userInformationContainer}>
         <View style={style.userInformation}>
-          <View style={style.image}>
-            <Image
-              source={require('../../assets/images/default-profile.png')}
-            />
-          </View>
+          <UserProfileImage />
 
           <View style={style.userPostInformation}>
             <Text style={style.name}>
@@ -45,7 +42,7 @@ const UserPost = ({
         </Pressable>
       </View>
       <View style={style.post}>
-        <Image  source={require('../../assets/images/default-post.png')} />
+        <Image source={require('../../assets/images/default-post.png')} />
       </View>
 
       <View style={style.userPostStatus}>

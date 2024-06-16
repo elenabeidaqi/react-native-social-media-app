@@ -13,6 +13,7 @@ import {style} from './assets/styles/main';
 import UserStory from './components/userStory/UserStory';
 import UserPost from './components/userPost/UserPost';
 
+
 function App(): React.JSX.Element {
   const data: any = [
     {firstName: 'Joseph', id: 1},
