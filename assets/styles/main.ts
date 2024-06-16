@@ -36,4 +36,8 @@ export const style = StyleSheet.create({
     paddingHorizontal: 28,
     marginTop : 25
   },
+  userPostContainer:{
+    marginTop : 30 ,
+    paddingHorizontal : 24,
+  }
 });
